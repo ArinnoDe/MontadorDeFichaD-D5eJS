@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+    <title>MontadorD&D5e</title>
+</head>
+<body>
+
+    <main>
+        <!--IDENTIFICAÇÃO DO PERSONAGEM-->
+        <section id="identify">
+            <label id="name" for="perso-name">
+                <span>Nome do personagem</span>
+                <input type="text" id="perso-name">
+            </label>
+            <div id="infos">
+                <label for="opt-class">
+                    <span>Classe</span>
+                    <select name="opt-class" id="opt-class">
+                        <option value="ladino">Ladino</option>
+                        <option value="guerreiro">Guerreiro</option>
+                    </select>
+                </label>
+
+                <label for="opt-race">
+                    <span>Raça</span>
+                    <select name="opt-race" id="opt-race">
+                        <option value="meioorc">Meio-Orc</option>
+                        <option value="humano">Humano</option>
+                    </select>
+                </label>
+                <label for="opt-antece">
+                    <span>Antecedente</span>
+                    <select name="opt-antece" id="opt-antece">
+                        <option value="charlatao">Charlatão</option>
+                        <option value="artista">Artista</option>
+                    </select>
+                </label>
+                <label for="opt-alinhamento">
+                    <span>Alinhamento</span>
+                    <select name="" id="opt-alinhamento">
+                        <option value="ordeirobom ">Ordeiro e Bom </option>
+                        <option value="neutrobom">Neutro e Bom</option>
+                        <option value="caoticobom">Caótico e Bom</option>
+                        <option value="ordeironeutro">Ordeiro e Neutro</option>
+                        <option value="neutro">Neutro</option>
+                        <option value="caoticoneutro">Caótico e Neutro</option>
+                        <option value="ordeiromau">Ordeiro e Mau</option>
+                        <option value="caioticomau">Caótico e Mau</option>
+                    </select>
+                </label>
+            </div>
+        </section>
+        <section id="column-section">
+        <!--ATRIBUTOS DO PERSONAGEM-->
+        <section id="atributes">
+            <div id="atribute-numbers">
+                <label for="forca-status">
+                    <span>Força</span> 
+                    <div><input max="30" min="0" id="forca-status" type="number" class="status"><span class="atribute-bonus" id="bonus-forca">+0</span></div>
+                    <span class="modfire">0</span>
+                </label>
+                <label for="destreza-status">
+                    <span>Destreza</span> 
+                    <div><input max="30" min="0" id="destreza-status" type="number" class="status"><span class="atribute-bonus" id="bonus-destreza">+0</span></div>
+                    <span class="modfire">0</span>
+                </label>
+                <label for="">
+                    <span>Constituição</span> 
+                    <div><input max="30" min="0" id="constituicao-status" type="number" class="status"><span class="atribute-bonus" id="bonus-constituicao">+0</span></div>
+                    <span class="modfire">0</span>
+                </label>
+                <label for="">
+                    <span>Inteligencia</span> 
+                    <div><input max="30" min="0" id="inteligencia-status" type="number" class="status"><span class="atribute-bonus" id="bonus-inteligencia">+0</span></div>
+                    <span class="modfire">0</span>
+                </label>
+                <label for="">
+                    <span>Sabedoria</span> 
+                    <div><input max="30" min="0" id="sabedoria-status" type="number" class="status"><span class="atribute-bonus" id="bonus-sabedoria">+0</span></div>
+                    <span class="modfire">0</span>
+                </label>
+                <label for="">
+                    <span>Carisma</span> 
+                    <div><input max="30" min="0" id="carisma-status" type="number" class="status"><span class="atribute-bonus" id="bonus-carisma">+0</span></div>
+                    <span class="modfire">0</span>
+                </label>
+            </div>
+
+            <div id="pericias">
+                <div id="pericias-disponiveis">
+                    <h2>Pericias Disponiveis</h2>
+                    <span id="pericias-num">0</span>
+                </div>
+                <div id="forca">
+                    <h5>Força</h5><br>
+                    <label for="forc-atletismo"><input id="forc-atletismo" value="atletismo" class="checkbox-pericia" type="checkbox"><span>Atletismo</span></label>
+                    <label for=""><input class="checkbox-pericia" type="checkbox"><span>Salvaguarda</span></label>
+                </div>
+                <div id="destreza">
+                    <h5>Destreza</h5><br>
+                    <label for=""><input class="checkbox-pericia" type="checkbox"><span>Salvaguarda</span> </label>
+                    <label for=""><input class="checkbox-pericia" value="acrobacia" type="checkbox"><span>Acrobacia</span> </label>
+                    <label for=""><input class="checkbox-pericia" type="checkbox"><span>Furtividade</span></label>
+                    <label for=""><input class="checkbox-pericia" type="checkbox"><span>Prestidigitação</span></label>               
+                </div>
+                <div id="constituicao">
+                    <h5>Constituição</h5><br>
+                    <label for=""><input class="checkbox-pericia" type="checkbox"><span>Salvaguarda</span></label>
+                </div>
+                <div id="inteligencia">
+                    <h5>Inteligencia</h5><br>
+                    <label for=""><input class="checkbox-pericia" type="checkbox"><span>Salvaguarda</span> </label>
+                    <label for=""><input class="checkbox-pericia" type="checkbox"><span>Arcanismo</span> </label>
+                    <label for=""><input class="checkbox-pericia" value="historia" type="checkbox"><span>Historia</span> </label>
+                    <label for=""><input class="checkbox-pericia" type="checkbox"><span>Investigação</span> </label>
+                    <label for=""><input class="checkbox-pericia" type="checkbox"><span>Natureza</span> </label>
+                    <label for=""><input class="checkbox-pericia" type="checkbox"><span>Religião</span> </label>
+                </div>
+                <div id="sabedoria">
+                    <h5>Sabedoria</h5><br>
+                    <label for=""><input class="checkbox-pericia" type="checkbox"><span>Salvaguarda</span></label>
+                    <label for=""><input class="checkbox-pericia" value="intuicao" type="checkbox"><span>Intuição</span></label>
+                    <label for=""><input class="checkbox-pericia" value="adestraranimais" type="checkbox"><span>Adestrar animais</span></label>
+                    <label for=""><input class="checkbox-pericia" type="checkbox"><span>Medicina</span></label>
+                    <label for=""><input class="checkbox-pericia" value="percepcao" type="checkbox"><span>Percepção</span></label>
+                    <label for=""><input class="checkbox-pericia" value="sobrevivencia" type="checkbox"><span>Sobrevivencia</span></label>
+                </div>
+
+                <div id="carisma">
+                    <h5>Carisma</h5><br>
+                    <label for=""><input class="checkbox-pericia" type="checkbox"><span>Salvaguarda</span></label>
+                    <label for=""><input class="checkbox-pericia" type="checkbox"><span>Atuação</span></label>
+                    <label for=""><input class="checkbox-pericia" type="checkbox"><span>Encarnação</span></label>
+                    <label for=""><input class="checkbox-pericia" value="intimidacao" type="checkbox"><span>Intimidação</span></label>
+                    <label for=""><input class="checkbox-pericia" type="checkbox"><span>Persuasão</span></label>
+                </div>
+            </div>
+                
+
+
+        </section>
+        <hr>
+        <!--PONTOS DE VIDA, ARMOR, ETC E EQUIPAMENTOS-->
+        <section id="life-equip">
+            <div id="life">
+                <div id="bonus">
+                    <label for="">
+                        <h4>CA</h4>
+                        <span>18</span>
+                    </label>
+                    <label for="">
+                        <h4>Iniciativa</h4>
+                        <span>+4</span>
+                    </label>
+                    <label for="">
+                        <h4>Deslocamento</h4>
+                        <span>10m</span>
+                    </label>
+                </div>
+                
+                
+                <div id="life-max-min">
+                    <div id="life-max">
+                        <h4>Vida Maxima</h4>
+                        <span class="life-max">00</span>
+                    </div>
+                    <div id="life-min">
+                        <h4>Vida Atual</h4>
+                        <span>00</span>
+                    </div>
+                </div>
+
+                <div id="test-life-death">
+                        <div id="test-life">
+                            <h4>Dado de vida</h4>
+                            <button class="life-dice">1d</button>
+                        </div>
+                    
+                    <div id="test-death">
+                        <h4>Salvamento contra morte</h4>
+                        <button>Roll</button>
+                        <div class="checkbox-3">
+                            <input type="checkbox" class="checkbox-death-test" id="checkbox-1">
+                            <input type="checkbox" class="checkbox-death-test" id="checkbox-2">
+                            <input type="checkbox" class="checkbox-death-test" id="checkbox-3">
+                        </div>
+                    </div>
+                </div>
+
+                <div3 id="equip">
+                    <h2>Equipamentos</h2>
+                    <div class="add-equip">
+                        <input type="text" placeholder="Adicionar equipamento">
+                        <button id="add-equip">+</button>
+                    </div>
+                    
+                    <ul id="list-equip">
+                        <li>
+                            <span class="txt-equip">Cota de malha</span>
+                            <div>
+                                <button class="btn-action"><i class="fas fa-pencil-alt"></i></button>
+                                <button class="btn-action"><i class="fas fa-times"></i></button>
+                            </div>
+                        </li>
+                        
+                        <li>
+                            <span class="txt-equip">Cota de malhaCota de malhaCota de malhaCota de malhaCota de malhaCota de malhaCota de malhaCota de malha</span>
+                            <div>
+                                <button class="btn-action"><i class="fas fa-pencil-alt"></i></button>
+                                <button class="btn-action"><i class="fas fa-times"></i></button>
+                            </div>
+                        </li>
+
+                        
+                        
+                    </ul>
+                    
+                </div3>
+            </div>
+            
+            
+
+             
+
+        </section>
+        <!--BACKGROUND DO PERSONAGEM-->
+        <section id="history">
+            <h3>Personalidade</h3>
+            <textarea name="presonalidade" id="" cols="30" rows="10"></textarea>
+            <h3>Ideais</h3>
+            <textarea name="ideais" id="" cols="30" rows="10"></textarea>
+            <h3>Vínculos</h3>
+            <textarea name="vinculos" id="" cols="30" rows="10"></textarea>
+            <h3>Fraquezas</h3>
+            <textarea name="fraquezas" id="" cols="30" rows="10"></textarea>
+            <h3>Caracteristicas & Talentos</h3>
+            <textarea name="caracteristicas-talentos" id="" cols="30" rows="10"></textarea>
+
+        </section>
+            
+
+        </section>
+        <section id="submit-section">
+            <button id="submit">Submit</button>
+        </section>
+    </main>
+<script src="./main.js"></script>
+</body>
+</html>
