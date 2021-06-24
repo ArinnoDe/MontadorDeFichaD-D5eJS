@@ -35,8 +35,8 @@ var classes = {
         lifeDice:6,
         lifeOne:6,
         pericias:{
-            q: 2,
-            disponiveis: ["acrobacia", "adestraranimais", "atletismo", "historia","intuicao", "intimidacao", "percepcao",  "sobrevivencia"]
+            q: 4,
+            disponiveis: ["acrobacia", "atletismo", "atuacao", "enganacao", "furtividade", "intimidacao", "intuicao", "investigacao", "percepcao", "persuasao","prestidigitacao"]
         }
     }
 }
@@ -67,6 +67,18 @@ var racas = {
 
     }
 }
+    var antecedentes = {
+        charlatao:{
+
+            pericias:{
+                q:2,
+                disponiveis: ["enganacao", "prestidigitacao"]
+            } 
+            
+        }
+
+    }
+
 //DEFINIR NOME
 function defineName(){
     let nome = document.getElementById("perso-name");
@@ -129,7 +141,8 @@ function definePersonagem(){
         deslocamento : 0,
         pericias: {
             q: 0,
-            disponiveis: []
+            disponiveis: [],
+            adquiridas: []
         }
     };
 
@@ -180,16 +193,24 @@ function definePersonagem(){
 
     //pericias
     //add pericias-q de classe em personagem
-    personagem.pericias.q += classes[personagem.classe].pericias.q;
+    personagem.pericias.q += classes[personagem.classe].pericias.q + antecedentes[personagem.antecedente].pericias.q;
 
     personagem.pericias.disponiveis = [...personagem.pericias.disponiveis,...classes[personagem.classe].pericias.disponiveis];
 
+    personagem.pericias.adquiridas = [...personagem.pericias.adquiridas, ...antecedentes[personagem.antecedente].pericias.disponiveis];
+
+    
+    
+    
 
     let checkboxPericia = document.getElementsByClassName("checkbox-pericia");
+
     
+
     for(let i in checkboxPericia){
         checkboxPericia[i].disabled = true;
     }
+
     for(let i in checkboxPericia){
         for(let j in personagem.pericias.disponiveis){
             if(checkboxPericia[i].value == personagem.pericias.disponiveis[j]){
@@ -197,6 +218,15 @@ function definePersonagem(){
             }
         }
     }
+    for(let i in checkboxPericia){
+        for(let j in personagem.pericias.adquiridas){
+            if(checkboxPericia[i].value == personagem.pericias.adquiridas[j]){
+                checkboxPericia[i].checked = true;
+                checkboxPericia[i].disabled = true;
+            }
+        }
+    }
+
     for(let i in checkboxPericia){
             if(checkboxPericia[i].checked == true){
                 personagem.pericias.q -= 1;
@@ -209,6 +239,8 @@ function definePersonagem(){
             }
         }
     }
+
+    
     
     document.getElementById("pericias-num").innerHTML = personagem.pericias.q;
         
