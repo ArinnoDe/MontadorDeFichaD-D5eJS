@@ -17,8 +17,8 @@ function removeBorderBottom(){
 }
 
 window.addEventListener("load", definePersonagem);
-let classeChange = document.querySelector("*");
-classeChange.addEventListener("change", definePersonagem);
+
+document.addEventListener("change", definePersonagem);
 
 //objetos
 var classes = {
@@ -124,7 +124,8 @@ function definePersonagem(){
     let raca = defineRace();
     let antecedente = DefineAntecedente();
     let alinhamento = DefineAlinhamento();
-    var personagem = { 
+    
+    personagem = {
         nome,
         classe,
         raca,
@@ -143,7 +144,8 @@ function definePersonagem(){
             q: 0,
             disponiveis: [],
             adquiridas: []
-        }
+        },
+        equipamentos: ['jorge', 'cleiton']
     };
 
     //dado de vida
@@ -240,11 +242,49 @@ function definePersonagem(){
         }
     }
 
-    
-    
     document.getElementById("pericias-num").innerHTML = personagem.pericias.q;
-        
-   
-    
+
+
+
+    let button = document.querySelectorAll(".choice-button");
+    button.forEach((botao) =>{
+        botao.addEventListener("click", choiceEquip);
+    });
+
+
+
+    renderEquip(personagem.equipamentos);
+
     console.log(personagem);
-}
+};
+
+function renderEquip(array){
+    const equips = document.querySelector("#list-equip");
+    equips.innerHTML = '';
+
+    array.forEach(item =>{
+        let li = document.createElement("li");
+
+        li.innerHTML = `<span class="txt-equip">${item}</span>
+            <div>
+                <button class="btn-action"><i class="fas fa-pencil-alt"></i></button>
+                <button class="btn-action"><i class="fas fa-times"></i></button>
+            </div>`
+        equips.appendChild(li);
+    }
+    );
+};
+
+
+function choiceEquip(){
+    let button = this;
+    
+    let choiceDiv = button.parentNode.parentNode;
+    personagem.equipamentos.push(button.parentNode.querySelector("span").innerHTML);
+    choiceDiv.remove();
+
+    
+
+    console.log(personagem.equipamentos);
+    renderEquip(personagem.equipamentos);
+};
